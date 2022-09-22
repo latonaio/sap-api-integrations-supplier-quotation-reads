@@ -79,12 +79,12 @@ func (c *SAPAPICaller) callWarehouseSrvAPIRequirementHeader(api, supplierQuotati
 }
 
 func (c *SAPAPICaller) Item(supplierQuotation, supplierQuotationItem string) {
-	data, err := c.callWarehouseSrvAPIRequirementItem("SupplierQuotation", supplierQuotation, supplierQuotationItem)
+	itemdata, err := c.callWarehouseSrvAPIRequirementItem("SupplierQuotation", supplierQuotation, supplierQuotationItem)
 	if err != nil {
 		c.log.Error(err)
 		return
 	}
-	c.log.Info(data)
+	c.log.Info(itemdata)
 }
 
 func (c *SAPAPICaller) callWarehouseSrvAPIRequirementItem(api, supplierQuotation, supplierQuotationItem string) ([]sap_api_output_formatter.Item, error) {
